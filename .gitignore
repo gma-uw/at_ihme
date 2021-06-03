@@ -1,0 +1,9 @@
+# Emacs backups
+*.~*~
+\#*#
+# Ignore python compiled directories
+__pycache__/
+# Ignore python compiled files
+*.pyc
+# Ignore gma backup directories
+_BACKUP_/
