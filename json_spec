@@ -1,0 +1,396 @@
+# from https://hub.ihme.washington.edu/pages/viewpage.action?spaceKey=~evanl5&title=epi+dismod+at+structure
+# Evan says it may be out of date as of 6/2/2020
+
+{  
+    model_version: {
+        parent_location_name:
+        zero_sum_random:
+        data_extra_columns:
+        avgint_extra_columns:
+        warn_on_stderr:
+        minimum_meas_cv:
+        ode_step_size:
+        random_seed:
+        rate_case:
+        quasi_fixed:
+        derivative_test_fixed:
+        derivative_test_random:
+        max_num_iter_fixed:
+        max_num_iter_random:
+        print_level_fixed:
+        print_level_random:
+        accept_after_max_steps_fixed:
+        accept_after_max_steps_random:
+        tolerance_fixed:
+        tolerance_random:
+        bound_random:
+        bound_frac_fixed:
+        default_age_grid:
+        default_time_grid:
+        students_dof_priors:
+        log_students_dof_priors:
+        students_dof_data:
+        log_students_dof_data:
+        data_eta:
+        data_density:
+        prior_eta:
+        model_description:
+        bundle_id:
+        drill:
+        drill_sex:
+        measure_only:
+        birth_prev:
+        constrain_omega:
+        add_csmr_cause:
+        fix_cov:
+        keep_re:
+        cv_global:
+        cv_super:
+        cv_region:
+        modelable_entity_id:
+        cascade_version_id:
+        inserted_by:
+        model_version_status_id:
+        code_version:
+        location_set_version_id:
+        csmr_cod_output_version_id:
+        csmr_mortality_output_version_id:
+        cross_validate_id:
+        gbd_round_id:
+    },
+    data_eta_by_integrand: [
+        {
+            integrand_measure_id:
+            value:
+        }
+    ],
+    data_density_by_integrand: [
+        {
+            integrand_measure_id:
+            value:
+        }
+    ],
+    re_bound_location: [
+        {
+            integrand_measure_id:
+            location_id:
+            cascade_level_id:
+        }
+    ],
+    min_cv_by_integrand: [
+        {
+            integrand_measure_id:
+            location_id:
+            value:
+        }
+    ],
+    exclude_data_for_param: [
+        {
+            integrand_measure_id:
+        }
+    ],
+    exclude_prior_data: [
+        {
+            integrand_measure_id:
+        }
+    ],
+    parent_rates: [
+        {
+            granularity:
+            rate_measure_id:
+            age_grid:
+            time_grid:
+            defaults: {
+                value: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                age_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                time_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                }
+            },
+            mulstd: {
+                value: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                age_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                time_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                }
+            },
+            detail: [
+                {
+                    type:
+                    age_lower:
+                    age_upper:
+                    time_lower:
+                    time_upper:
+                    born_lower:
+                    born_upper:
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                }
+            ]
+        }
+    ],
+    child_rates: [
+        {
+            granularity:
+            rate_measure_id:
+            age_grid:
+            time_grid:
+            defaults: {
+                value: {
+                    density:
+                    std:
+                    count:
+                },
+                age_diff: {
+                    density:
+                    std:
+                    count:
+                },
+                time_diff: {
+                    density:
+                    std:
+                    const:
+                }
+            },
+            mulstd: {
+                value: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                age_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                time_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                }
+            },
+            detail: [
+                {
+                    type:
+                    age_lower:
+                    age_upper:
+                    time_lower:
+                    time_upper:
+                    born_lower:
+                    born_upper:
+                    density:
+                    std:
+                    const:
+                }
+            ]
+        }
+    ],
+    country_covariates: [
+        {
+            granularity:
+            rate_measure_id:
+            integrand_measure_id:
+            country_covariate_id:
+            multype:
+            transformation:
+            age_grid:
+            time_grid:
+            defaults: {
+                value: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                age_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                time_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                }
+            },
+            mulstd: {
+                value: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                age_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                time_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                }
+            },
+            detail: [
+                {
+                    type:
+                    age_lower:
+                    age_upper:
+                    time_lower:
+                    time_upper:
+                    born_lower:
+                    born_upper:
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                }
+            ]
+        }
+    ],
+    study_covariates: [
+        {
+            granularity:
+            rate_measure_id:
+            integrand_measure_id:
+            study_covariate_id:
+            age_grid:
+            time_grid:
+            defaults: {
+                value: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                age_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                time_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                }
+            },
+            mulstd: {
+                value: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                age_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                },
+                time_diff: {
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                    ?eta:
+                }
+            },
+            detail: [
+                {
+                    type:
+                    age_lower:
+                    age_upper:
+                    time_lower:
+                    time_upper:
+                    born_lower:
+                    born_upper:
+                    density:
+                    min:
+                    mean:
+                    max:
+                    std:
+                }
+            ]
+        }
+    ]
+}
