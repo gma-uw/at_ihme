@@ -1,6 +1,8 @@
 # Emacs backups
 *.~*~
 \#*#
+# Emacs tags
+TAGS
 # Ignore python compiled directories
 __pycache__/
 # Ignore python compiled files
