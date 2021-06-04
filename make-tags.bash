@@ -1,3 +1,4 @@
+#!/bin/bash
 etags \
     /Users/gma/Projects/IHME/GIT/at_ihme.git/src/cascade_at/__init__.py \
     /Users/gma/Projects/IHME/GIT/at_ihme.git/src/cascade_at/context/__init__.py \

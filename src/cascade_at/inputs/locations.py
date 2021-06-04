@@ -4,7 +4,8 @@ import pandas as pd
 from typing import List, Optional
 
 from cascade_at.inputs.utilities.gbd_ids import CascadeConstants
-from cascade_at.core.db import db_queries
+# from cascade_at.core.db import db_queries
+from cascade_at.ihme_interface import db_queries
 from cascade_at.core import CascadeATError
 from cascade_at.core.log import get_loggers
 

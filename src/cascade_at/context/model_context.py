@@ -13,8 +13,8 @@ from cascade_at.model.grid_alchemy import Alchemy
 from cascade_at.settings.settings import load_settings
 from cascade_at.settings.settings_config import SettingsConfig
 from cascade_at.executor.utils.utils import MODEL_STATUS, update_model_status
-from cascade_at.core.db import db_tools
-
+#gma from cascade_at.core.db import db_tools
+from cascade_at.ihme_interface import db_tools
 LOG = get_loggers(__name__)
 
 
@@ -52,7 +52,8 @@ class Context:
             #gma# self.model_connection = 'dismod-at-dev'
 
             # Configure the odbc.ini for db-tools
-            db_tools.config.DBConfig(
+            # gma db_tools.config.DBConfig(
+            db_tools.DBConfig(
                 load_base_defs=True,
                 load_odbc_defs=True,
                 odbc_filepath=self.odbc_file

@@ -3,8 +3,10 @@ import numpy as np
 from typing import Optional
 from intervaltree import IntervalTree
 
-from cascade_at.core.db import db_queries
-from cascade_at.core.db import db_tools
+# gma from cascade_at.core.db import db_queries
+from cascade_at.ihme_interface import db_queries
+# gma from cascade_at.core.db import db_tools
+from cascade_at.ihme_interface import db_tools
 from cascade_at.core import CascadeATError
 from cascade_at.core.log import get_loggers
 

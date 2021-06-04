@@ -1,7 +1,8 @@
 import pandas as pd
 from typing import List
 
-from cascade_at.core.db import db_queries
+# gma from cascade_at.core.db import db_queries
+from cascade_at.ihme_interface import db_queries
 from cascade_at.core.log import get_loggers
 from cascade_at.inputs.base_input import BaseInput
 from cascade_at.inputs.demographics import Demographics

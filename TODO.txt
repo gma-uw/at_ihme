@@ -1,0 +1,2 @@
+Wrap all of the db_queries calls to allow 2 or 3 attempts before bailing out on the exception 
+   (MySQLdb._exceptions.OperationalError) (2013, "Lost connection to MySQL server at 'reading initial communication packet', system error: 54")

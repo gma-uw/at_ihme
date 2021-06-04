@@ -1,6 +1,7 @@
 from typing import Optional
 
-from cascade_at.core.db import db_queries
+# gma from cascade_at.core.db import db_queries
+from cascade_at.ihme_interface import db_queries
 from cascade_at.inputs.locations import LocationDAG
 
 

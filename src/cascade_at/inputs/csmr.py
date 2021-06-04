@@ -1,7 +1,7 @@
 import pandas as pd
 
-from cascade_at.core.db import db_queries as db
-from cascade_at.core.db import gbd, db_tools
+# from cascade_at.core.db import db_queries as db
+from cascade_at.ihme_interface import db_queries as db
 
 from cascade_at.core.log import get_loggers
 from cascade_at.inputs.base_input import BaseInput
@@ -106,18 +106,19 @@ class CSMR(BaseInput):
             # location_ids = self.demographics.drill_locations
             location_ids = self.demographics.location_id
             LOG.info(f"Location_id's: {location_ids}")
-            self.raw = db.get_outputs(
-                topic='cause',
-                cause_id=self.cause_id,
-                metric_id=gbd.constants.metrics.RATE,
-                measure_id=gbd.constants.measures.DEATH,
-                year_id=self.demographics.year_id,
-                location_id=location_ids,
-                sex_id=self.demographics.sex_id,
-                age_group_id=self.demographics.age_group_id,
-                gbd_round_id=self.gbd_round_id,
-                process_version_id=self.process_version_id
-            )
+            for attempt in range(3):
+                self.raw = db.get_outputs(
+                    topic='cause',
+                    cause_id=self.cause_id,
+                    metric_id=gbd.constants.metrics.RATE,
+                    measure_id=gbd.constants.measures.DEATH,
+                    year_id=self.demographics.year_id,
+                    location_id=location_ids,
+                    sex_id=self.demographics.sex_id,
+                    age_group_id=self.demographics.age_group_id,
+                    gbd_round_id=self.gbd_round_id,
+                    process_version_id=self.process_version_id
+                )
         else:
             LOG.info("There is no CSMR cause to pull from.")
             self.raw = pd.DataFrame()

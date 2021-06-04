@@ -1,6 +1,7 @@
 import pandas as pd
 
-from cascade_at.core.db import db_queries
+# gma from cascade_at.core.db import db_queries
+from cascade_at.ihme_interface import db_queries
 from cascade_at.core.log import get_loggers
 from cascade_at.inputs.base_input import BaseInput
 from cascade_at.inputs.demographics import Demographics
@@ -37,14 +38,23 @@ class Population(BaseInput):
         Gets the population counts from the database
         for the specified demographic group.
         """
-        self.raw = db_queries.get_population(
-            age_group_id=self.demographics.age_group_id,
-            sex_id=self.demographics.sex_id,
-            year_id=self.demographics.year_id,
-            location_id=-1,
-            decomp_step=self.decomp_step,
-            gbd_round_id=self.gbd_round_id
-        )
+        for attempt in range(3):
+            try:
+                self.raw = db_queries.get_population(
+                    age_group_id=self.demographics.age_group_id,
+                    sex_id=self.demographics.sex_id,
+                    year_id=self.demographics.year_id,
+                    location_id=-1,
+                    decomp_step=self.decomp_step,
+                    gbd_round_id=self.gbd_round_id
+                )
+                return self
+            except Exception as ex:
+                LOG.error(f'Try #{attempt}: {str(ex)}')
+                if 'lost connection' in str(ex).lower():
+                    continue
+                else:
+                    raise
         return self
     
     def configure_for_dismod(self) -> pd.DataFrame:

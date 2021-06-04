@@ -2,7 +2,8 @@ import json
 from typing import Dict, Any
 
 from cascade_at.settings.settings_config import SettingsConfig
-from cascade_at.core.db import db_tools
+# from cascade_at.core.db import db_tools
+from cascade_at.ihme_interface import db_tools
 from cascade_at.core.errors import SettingsError
 from cascade_at.core.log import get_loggers
 

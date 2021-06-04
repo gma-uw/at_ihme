@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 
-from cascade_at.core.db import db_queries
+# gma from cascade_at.core.db import db_queries
+from cascade_at.ihme_interface import db_queries
 from cascade_at.core.log import get_loggers
 from cascade_at.inputs.base_input import BaseInput
 from cascade_at.dismod.constants import IntegrandEnum
