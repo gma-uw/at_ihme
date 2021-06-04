@@ -46,7 +46,6 @@ def settings_json_from_model_version_id(model_version_id: int, conn_def: str) ->
     """
     query = f"""SELECT parameter_json FROM epi.model_version_at
             WHERE model_version_id = {model_version_id}"""
-    print (query)
     df = db_tools.ezfuncs.query(query, conn_def=conn_def)
     return json.loads(df['parameter_json'][0])
 

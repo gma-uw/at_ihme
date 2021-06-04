@@ -1,7 +1,10 @@
 import pandas as pd
 
-# from cascade_at.core.db import db_queries as db
-from cascade_at.ihme_interface import db_queries as db
+#gma from cascade_at.core.db import db_queries as db
+from cascade_at.ihme_interface import db_queries
+#gma from cascade_at.core.db import gdb, db_tools
+from cascade_at.ihme_interface import db_tools
+from cascade_at.core.db import gbd
 
 from cascade_at.core.log import get_loggers
 from cascade_at.inputs.base_input import BaseInput
@@ -32,8 +35,8 @@ def get_best_cod_correct(gbd_round_id: int) -> int:
             AND co.best_end IS NULL
             AND ds.gbd_round_id = {gbd_round_id}
             """
-    print (run_query)
-    run_id = db_tools.ezfuncs.query(
+    # gma run_id = db_tools.ezfuncs.query(
+    run_id = db_tools.query(
         run_query, conn_def='cod'
     ).version.astype(int).squeeze()
     if run_id is None:
@@ -58,8 +61,8 @@ def get_best_cod_correct(gbd_round_id: int) -> int:
                 and val = {run_id}
             ORDER BY gbd_process_version_id DESC
             """
-    print (proc_query)
-    process_version_id = db_tools.ezfuncs.query(
+    # gma process_version_id = db_tools.ezfuncs.query(
+    process_version_id = db_tools.query(
         proc_query, conn_def='gbd'
     ).gbd_process_version_id.astype(int).squeeze()
     if process_version_id is None:
@@ -107,7 +110,7 @@ class CSMR(BaseInput):
             location_ids = self.demographics.location_id
             LOG.info(f"Location_id's: {location_ids}")
             for attempt in range(3):
-                self.raw = db.get_outputs(
+                self.raw = db_tools.get_outputs(
                     topic='cause',
                     cause_id=self.cause_id,
                     metric_id=gbd.constants.metrics.RATE,
@@ -133,8 +136,10 @@ class CSMR(BaseInput):
         df = self.raw[['year_id', 'location_id', 'sex_id', 'age_group_id', 'val', 'upper', 'lower']]
         df['model_version_id'] = model_version_id
         df.rename(columns={'val': 'mean'}, inplace=True)
-        session = db_tools.ezfuncs.get_session(conn_def=conn_def)
-        loader = db_tools.loaders.Inserts(
+        # gma session = db_tools.ezfuncs.get_session(conn_def=conn_def)
+        session = db_tools.get_session(conn_def=conn_def)
+        # gma loader = db_tools.loaders.Inserts(
+        loader = db_tools.Inserts(
             table='t3_model_version_csmr',
             schema='epi',
             insert_df=df

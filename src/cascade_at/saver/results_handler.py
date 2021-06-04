@@ -192,7 +192,8 @@ class ResultsHandler:
             raise ResultsError("Don't know how to upload to table "
                                f"{table}. Valid tables are {VALID_TABLES}.")
 
-        session = db_tools.ezfuncs.get_session(conn_def=conn_def)
+        # gma session = db_tools.ezfuncs.get_session(conn_def=conn_def)
+        session = db_tools.get_session(conn_def=conn_def)
         loader = db_tools.loaders.Infiles(table=table, schema='epi', session=session)
 
         generic_file = (directory / '*' / '*summary.csv').absolute()

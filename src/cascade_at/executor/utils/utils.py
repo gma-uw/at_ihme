@@ -16,4 +16,5 @@ def update_model_status(model_version_id: int, status_id: int, conn_def: str):
         WHERE model_version_id = {model_version_id}"""
     )
     session = ezfuncs.get_session(conn_def)
-    return db_tools.query_tools.exec_query(call, session=session, close=True)
+    # gma return db_tools.query_tools.exec_query(call, session=session, close=True)
+    return db_tools.exec_query(call, session=session, close=True)

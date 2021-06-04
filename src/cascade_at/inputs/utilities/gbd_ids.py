@@ -72,8 +72,7 @@ def get_measure_ids(conn_def):
     :return: (df)
     """
     query = "SELECT measure_id, measure, measure_name FROM shared.measure"
-    print (query)
-    df = db_tools.ezfuncs.query(query, conn_def=conn_def)
+    df = db_tools.query(query, conn_def=conn_def)
     return df
 
 
