@@ -255,7 +255,7 @@ def dismod_db(model_version_id: int, parent_location_id: int, sex_id: int,
             out_dir=context.fit_dir
         
         )
-
+    return filler.path
 
 def main(argv):
 
